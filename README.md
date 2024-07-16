@@ -64,10 +64,14 @@ python3 backend/manage.py migrate
 Создайте суперпользователя: 
 
 ```
-python backend/manage.py create_admin`
+python backend/manage.py create_admin
 ```
 ```
-python3 backend/manage.py create_admin`
+python3 backend/manage.py create_admin
+```
+Загрузите тестовые данные
+```
+python backend/manage.py loaddata db.json
 ```
 
 Запустите сервер:
@@ -81,8 +85,9 @@ python3 backend/manage.py runserver
 
 ### Доступ к API
 API доступно по адресу http://localhost/api/v1/
-GET - http://localhost/api/v1/points/ получить список точек пользователя
-POST - http://localhost/api/v1/visit/ создать посещение точки
+
+- GET - http://localhost/api/v1/points/ получить список точек пользователя
+- POST - http://localhost/api/v1/visit/ создать посещение точки
 
 ### Авторы
 Денис Третьяков
