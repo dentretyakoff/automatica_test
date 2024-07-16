@@ -15,6 +15,10 @@ class Employee(models.Model):
     def __str__(self):
         return self.name
 
+    @property
+    def is_authenticated(self):
+        return isinstance(self, Employee)
+
     class Meta:
         constraints = [
             models.UniqueConstraint(fields=['name', 'phone'],
@@ -37,7 +41,7 @@ class Point(models.Model):
 
 class Visit(models.Model):
     """Посещение торговых точек сотрудниками."""
-    date = models.DateTimeField('Дата посещения')
+    date = models.DateTimeField('Дата посещения', auto_now_add=True)
     point = models.ForeignKey(
         Point,
         related_name='visits',
