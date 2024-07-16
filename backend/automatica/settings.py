@@ -1,8 +1,7 @@
 import os
 from pathlib import Path
 
-from dotenv import load_dotenv, find_dotenv
-
+from dotenv import find_dotenv, load_dotenv
 
 load_dotenv(find_dotenv())
 
@@ -106,3 +105,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Версия API
 API_VERSION = 'v1'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'api.auth.PhoneAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'api.permissions.PhoneIsAuthenticated',
+    ),
+}
