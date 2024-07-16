@@ -1,10 +1,16 @@
 from django.db import models
 
+from .validators import validate_phone_number
+
 
 class Employee(models.Model):
     """Сотрудник."""
     name = models.CharField('ФИО сотрудника', max_length=255)
-    phone = models.CharField('Телефон', max_length=255)
+    phone = models.CharField(
+        'Телефон',
+        max_length=255,
+        validators=(validate_phone_number,)
+    )
 
     def __str__(self):
         return self.name
